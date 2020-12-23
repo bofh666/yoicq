@@ -63,7 +63,7 @@ echo "<!DOCTYPE html>
         $new_user_nickname = trim(strip_tags($_POST['new_user_nickname']));
         $new_user_password = trim(strip_tags($_POST['new_user_password']));
         if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $new_user_email)) {
-            echo "<p style='text-align:center;color:#FF0000'>Invalid email format</p>";
+            echo "<p style='text-align:center;color:#FF0000'>Invalid E-mail format</p>";
         } else {
 
           $result = pg_query($dbconn, "SELECT email1 FROM users_info_ext WHERE email1='".$new_user_email."'"); $email1_found = 0;
