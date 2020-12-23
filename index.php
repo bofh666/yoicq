@@ -89,7 +89,6 @@ echo "<!DOCTYPE html>
             if ($nickname_found > 0) {
               echo "<p style='text-align:center;color:#FF0000'>This nickname is occupied already</p>";
             } else {
-              // logika vydeleniya novogo uin, dobavlenie novogy zapisi v BD, otpravka pisem useru i adminu, soonschenie, chto vse ZBS
               $new_uin = rand(10000, 99999);
               while (in_array($new_uin, $users_total)) {
                 $new_uin = rand(10000, 99999);
