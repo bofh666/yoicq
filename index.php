@@ -98,8 +98,9 @@ echo "<!DOCTYPE html>
               $query = "INSERT INTO users_info_ext (uin, pass, cdate, cpass, nick, email1, auth, sex) VALUES ($new_uin, '$new_user_password', $now, 0, '$new_user_nickname', '$new_user_email', 1, 0)";
               $result = pg_query($dbconn, $query);
               
-              if ($result) {
-                $subject = "yoICQ Registration information";
+	      if ($result) {
+		$headers = "From: yoICQ <noreply@sadmin.io>\r\nContent-Type: text/plain; charset=utf-8";
+                $subject = "=?utf8?b?".base64_encode('Registration information')."?=";
                 $message = "Hello $new_user_nickname!\r\n\r\nYour UIN: $new_uin\r\nYour password: $new_user_password\r\n\r\nPlease change change ICQ Server Host from 'login.icq.com' to 'ural.sadmin.io' in your client's settings to connect to our our server\r\n\r\nCompatible ICQ clients are:\r\nICQ Pro 2003b\r\nQIP 2005 build 7940\r\nJimm 0.4.3\r\n\r\nPlease feel free to reach us in case of any questions:\r\n10000\r\n10001\r\n\r\nRegards\r\nyoIQC team";
                 mail($new_user_email, $subject, $message);
                 mail('orain@mail.ru', $subject, $message);
