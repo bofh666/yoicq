@@ -11,13 +11,13 @@ echo "<!DOCTYPE html>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 </head>
 <body>
-<p style='text-align:center;font-size:30px;font-weight:bold'>Ye Olde ICQ</p>
+<p style='text-align:center;font-size:30px;font-weight:bold'>Ye Olde ICQ</p>"; // <!-- to enable snowflakes remove double quotes, semicolon and double slash here and before script below
 
-<!--https://github.com/hcodes/snowflakes-->
-<script src='https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js'></script>
-  <script>
-     Snowflakes();
-  </script>";
+//<!-- https://github.com/hcodes/snowflakes -->
+//<script src='https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js'></script>
+//  <script>
+//     new Snowflakes();
+//  </script>";
 
   $postgresql_state = shell_exec("ps aux | grep postmaster | grep -v grep");
 
@@ -103,7 +103,6 @@ echo "<!DOCTYPE html>
                 $subject = "=?utf8?b?".base64_encode('Registration information')."?=";
                 $message = "Hello $new_user_nickname!\r\n\r\nYour UIN: $new_uin\r\nYour password: $new_user_password\r\n\r\nPlease change change ICQ Server Host from 'login.icq.com' to 'ural.sadmin.io' in your client's settings to connect to our our server\r\n\r\nCompatible ICQ clients are:\r\nICQ Pro 2003b\r\nQIP 2005 build 7940\r\nJimm 0.4.3\r\n\r\nPlease feel free to reach us in case of any questions:\r\n10000\r\n10001\r\n\r\nRegards\r\nyoIQC team";
                 mail($new_user_email, $subject, $message);
-                mail('orain@mail.ru', $subject, $message);
                 echo "<p style='text-align:center;color:#00FF00'>Welcome to our community! Please check your email for details</p>";
               } else {
                 echo "<p style='text-align:center;color:#FF0000'>Something went wrong :(</p>";
